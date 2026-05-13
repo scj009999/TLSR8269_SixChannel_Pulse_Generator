@@ -1,0 +1,82 @@
+#######################################
+# Syntax Coloring Map For PulseTherapy
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+PulseTherapy	KEYWORD1
+TherapyMode	KEYWORD1
+ChannelState	KEYWORD1
+PulseCallback	KEYWORD1
+SafetyCallback	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+begin	KEYWORD2
+end	KEYWORD2
+configureChannel	KEYWORD2
+enableChannel	KEYWORD2
+disableChannel	KEYWORD2
+enableAll	KEYWORD2
+disableAll	KEYWORD2
+setFrequency	KEYWORD2
+setDuty	KEYWORD2
+setPhase	KEYWORD2
+setCurrentLimit	KEYWORD2
+startTherapy	KEYWORD2
+stopTherapy	KEYWORD2
+pauseTherapy	KEYWORD2
+resumeTherapy	KEYWORD2
+loadParkinsonStandard	KEYWORD2
+loadParkinsonIntense	KEYWORD2
+loadParkinsonConservative	KEYWORD2
+loadSleepMode	KEYWORD2
+loadPainRelief	KEYWORD2
+emergencyStop	KEYWORD2
+safetyCheck	KEYWORD2
+getChannelState	KEYWORD2
+getActiveChannelCount	KEYWORD2
+getElapsedTime	KEYWORD2
+getRemainingTime	KEYWORD2
+update	KEYWORD2
+breathingEffect	KEYWORD2
+getVersion	KEYWORD2
+onChannelChange	KEYWORD2
+onSafetyAlert	KEYWORD2
+onComplete	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+PULSE_CHANNEL_NUM	LITERAL1
+SAFE_FREQ_MIN	LITERAL1
+SAFE_FREQ_MAX	LITERAL1
+SAFE_DUTY_MIN	LITERAL1
+SAFE_DUTY_MAX	LITERAL1
+SAFE_CURRENT_MAX	LITERAL1
+SAFE_DURATION_MAX	LITERAL1
+
+MODE_CUSTOM	LITERAL1
+MODE_PARKINSON_STD	LITERAL1
+MODE_PARKINSON_INTENSE	LITERAL1
+MODE_PARKINSON_CONSERVATIVE	LITERAL1
+MODE_SLEEP	LITERAL1
+MODE_PAIN_RELIEF	LITERAL1
+
+CH0_PIN	LITERAL1
+CH1_PIN	LITERAL1
+CH2_PIN	LITERAL1
+CH3_PIN	LITERAL1
+CH4_PIN	LITERAL1
+CH5_PIN	LITERAL1
+
+#######################################
+# Global Instances (KEYWORD3)
+#######################################
+
+Pulse	KEYWORD3
