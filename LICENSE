@@ -1,7 +1,7 @@
                     GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
 
- Copyright (C) 2026  [Your Name] <your.email@example.com>
+ Copyright (C) 2026  Open Source Pulse Therapy Project
 
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -18,43 +18,98 @@
 
 ================================================================================
 
-                    CERN OPEN HARDWARE LICENCE v2
+                         CERN Open Hardware Licence
+                               Version 2 - Weakly Reciprocal
 
-Copyright (C) 2026 [Your Name]
+Copyright (C) 2026 Open Source Pulse Therapy Project
 
-This hardware design is licensed under the CERN Open Hardware Licence v2.
-You may redistribute and modify this documentation under the terms of the
-CERN OHL v2. (https://ohwr.org/cern_ohl_s_v2.txt)
+This hardware design is licensed under the CERN Open Hardware Licence v2 (Weakly
+Reciprocal). You may redistribute and modify this documentation under the terms
+of the CERN OHL v.2. (http://ohwr.org/cernohl).
 
 This documentation is distributed WITHOUT ANY EXPRESS OR IMPLIED WARRANTY,
-INCLUDING OF MERCHANTABILITY, SATISFACTORY QUALITY AND FITNESS FOR A 
-PARTICULAR PURPOSE. Please see the CERN OHL v2 for applicable conditions.
+INCLUDING OF MERCHANTABILITY, SATISFACTORY QUALITY AND FITNESS FOR A
+PARTICULAR PURPOSE. Please see the CERN OHL v.2 for applicable conditions.
 
 ================================================================================
 
-                         特别声明 / SPECIAL DECLARATION
+                         ADDITIONAL TERMS FOR MEDICAL DEVICES
 
-本项目为帕金森叠加综合症患者发起的开源医疗设备项目。
+1. MEDICAL DISCLAIMER: This project is an experimental open-source medical 
+   device. It has NOT been approved by any regulatory authority (e.g., NMPA, 
+   FDA, CE). Use at your own risk. Always consult with a qualified healthcare 
+   provider before use.
 
-核心原则：
-1. 不以盈利为目的
-2. 所有技术资料完全开源
-3. 不收取任何形式的专利费或授权费
-4. 欢迎任何个人或企业基于本设计生产低成本设备
-5. 唯一要求：保持低价，让患者受益
+2. SAFETY REQUIREMENTS: Any derivative work MUST maintain or exceed the safety
+   features documented in this project, including but not limited to:
+   - Current limiting (maximum 5mA output)
+   - Electrical isolation (minimum 5000V)
+   - Emergency stop functionality
+   - Watchdog timer protection
+   - Impedance monitoring
 
-警告：
-- 本设备为实验性开源医疗设备，尚未获得医疗器械注册证
-- 使用前应咨询专业医生
-- 患有癫痫、装有心脏起搏器或其他植入式电子设备的患者禁用
-- 孕妇、儿童应在医生指导下使用
-- 生产者应确保产品符合当地医疗器械法规
+3. PATENT GRANT: The contributors grant a worldwide, royalty-free, irrevocable
+   patent license to use, make, sell, and distribute this technology for 
+   medical purposes. No party may file patents that would restrict others from
+   using this open-source design.
+
+4. ATTRIBUTION: Derivative works must include the following notice:
+   "Based on the Open Source Pulse Therapy Project 
+    (https://github.com/scj009999/TLSR8269_SixChannel_Pulse_Generator)"
+
+5. NON-DISCRIMINATION: This device and its derivatives may not be used to 
+   discriminate against patients based on ability to pay, race, gender, 
+   religion, nationality, disability, or any other protected characteristic.
 
 ================================================================================
 
-联系方式：
-- 项目主页：https://github.com/yourrepo/pulse_generator
-- 项目邮箱：open-source-pulse@example.com
-- 患者互助群：[QQ群号/微信群]
+                         NON-COMMERCIAL & VOLUNTEER TERMS
+
+6. NON-COMMERCIAL USE: This project is STRICTLY FOR NON-COMMERCIAL USE ONLY.
+   - NO ONE may use this design for commercial profit
+   - NO ONE may sell this device or derivatives for profit
+   - NO ONE may charge patients for treatment using this device
+   - Commercial entities wishing to use this design must contact the project
+     for a separate commercial license (which will include strict pricing caps)
+
+7. VOLUNTEER BASIS: All contributors, including but not limited to doctors,
+   researchers, developers, and testers, participate on a STRICTLY VOLUNTARY
+   BASIS. 
+   - NO compensation or payment is guaranteed or expected
+   - NO employment relationship is created
+   - Participants act in their personal capacity, not as representatives of
+     their employers or institutions
+   - The project is not responsible for any actions taken by volunteers
+
+8. NO MEDICAL SERVICES: This project provides open-source technology ONLY.
+   - We do NOT provide medical services
+   - We do NOT diagnose, treat, or prescribe
+   - We do NOT establish doctor-patient relationships
+   - All medical decisions must be made by qualified healthcare providers
 
 ================================================================================
+
+                         COMMITMENT TO ACCESSIBILITY
+
+We, the contributors, pledge that:
+
+- This design will remain open-source forever
+- We will not charge royalties or licensing fees
+- We will prioritize safety over cost reduction
+- We will support low-resource settings and developing regions
+- We will not allow commercial monopolization of this technology
+- We will never charge patients for access to this technology
+
+Every person with Parkinson's disease, regardless of economic status, deserves
+access to effective treatment.
+
+================================================================================
+
+For the full text of GPL v3: https://www.gnu.org/licenses/gpl-3.0.txt
+For the full text of CERN OHL v2: https://ohwr.org/cern_ohl_w_v2.txt
+
+Project Repository: https://github.com/scj009999/TLSR8269_SixChannel_Pulse_Generator
+Contact: [Create an Issue on GitHub]
+
+Date: 2026-05-07
+Version: 1.0.0
