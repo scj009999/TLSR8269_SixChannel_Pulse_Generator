@@ -65,12 +65,12 @@
  * PA1     | GPIO     | PWM1       | UART_RTS
  * PA2     | GPIO     | PWM2       | I2C_SCL
  * PA3     | GPIO     | PWM3       | I2C_SDA
- * PA4     | GPIO     | PWM4       | SPI_CK
- * PA5     | GPIO     | PWM5       | SPI_CN
+ * PA4     | GPIO     | -          | SPI_CK
+ * PA5     | GPIO     | -          | SPI_CN
  * PA6     | GPIO     | -          | SPI_DI
  * PA7     | GPIO     | -          | SPI_DO
- * PB0     | GPIO     | -          | SWM
- * PB1     | GPIO     | -          | UART_TX
+ * PB0     | GPIO     | PWM4       | SWM
+ * PB1     | GPIO     | PWM5       | UART_TX
  * PB2     | GPIO     | -          | UART_RX
  * PB3     | GPIO     | -          | -
  * PB4     | GPIO     | -          | -
@@ -87,10 +87,11 @@
  * PF0-PF7 | GPIO     | PWM0-PWM5  | -
  * 
  * 注意：
- * 1. PA0-PA5 均可作为 PWM0-PWM5 输出
- * 2. PF2-PF5 也可作为 PWM0-PWM3 输出
- * 3. 同一PWM通道不能同时在多个引脚输出
- * 4. 本设计使用 PA0-PA5 作为六路PWM输出
+ * 1. PA0-PA3 可作为 PWM0-PWM3 输出
+ * 2. PB0-PB1 可作为 PWM4-PWM5 输出 (QFN32封装)
+ * 3. PF2-PF5 也可作为 PWM0-PWM3 输出 (QFN48封装)
+ * 4. 同一PWM通道不能同时在多个引脚输出
+ * 5. 本设计使用 PA0-PA3, PB0-PB1 作为六路PWM输出
  */
 
 #endif /* APP_CONFIG_H_ */
