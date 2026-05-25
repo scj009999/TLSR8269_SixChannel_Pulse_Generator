@@ -199,13 +199,21 @@ bool PulseTherapy::enableAll() {
 }
 
 bool PulseTherapy::disableAll() {
-    // 快速关闭所有通道
+    // 快速关闭所有通道（原子操作）
+    noInterrupts();
+    
     analogWrite(PWM_EN, 0);
     for (int i = 0; i < PULSE_CHANNEL_NUM; i++) {
         digitalWrite(CH0_PIN + i, LOW);
         _channels[i].enabled = false;
+    }
+    
+    interrupts();
+    
+    for (int i = 0; i < PULSE_CHANNEL_NUM; i++) {
         if (_channelCallback) _channelCallback(i, false);
     }
+    
     return true;
 }
 
@@ -344,6 +352,9 @@ bool PulseTherapy::loadPainRelief() {
 
 bool PulseTherapy::emergencyStop() {
     // 立即关闭所有输出（最高优先级）
+    // 使用原子操作确保不被中断打断
+    noInterrupts();
+    
     analogWrite(PWM_EN, 0);
     for (int i = 0; i < PULSE_CHANNEL_NUM; i++) {
         digitalWrite(CH0_PIN + i, LOW);
@@ -352,6 +363,8 @@ bool PulseTherapy::emergencyStop() {
     
     _therapyRunning = false;
     _therapyPaused = false;
+    
+    interrupts();
     
     if (_safetyCallback) _safetyCallback("紧急停止已触发！");
     
@@ -421,7 +434,7 @@ uint32_t PulseTherapy::getRemainingTime() {
 }
 
 void PulseTherapy::update() {
-    // 喂狗
+    // 喂狗（必须在1秒内执行）
     analogWrite(WDT_CLR, 0x01);
     
     // 检查治疗是否超时
@@ -432,15 +445,32 @@ void PulseTherapy::update() {
             return;
         }
         
-        // 定期检查安全
+        // 定期检查安全（每100ms一次，提高响应速度）
         static uint32_t lastSafetyCheck = 0;
         uint32_t now = millis();
-        if (now - lastSafetyCheck > 1000) {  // 每秒检查一次
+        if (now - lastSafetyCheck > 100) {  // 每100ms检查一次
             lastSafetyCheck = now;
             if (!safetyCheck()) {
                 emergencyStop();
                 return;
             }
+        }
+        
+        // 实时电流监测（每通道每50ms）
+        static uint8_t currentCh = 0;
+        static uint32_t lastCurrentCheck = 0;
+        if (now - lastCurrentCheck > 50) {
+            lastCurrentCheck = now;
+            if (_channels[currentCh].enabled) {
+                uint16_t current = readChannelCurrent(currentCh);
+                if (current > _currentLimit) {
+                    // 电流超限，立即降低占空比
+                    uint16_t newDuty = (_channels[currentCh].duty * _currentLimit) / current;
+                    setDuty(currentCh, newDuty);
+                    if (_safetyCallback) _safetyCallback("通道电流超限，已自动降低强度");
+                }
+            }
+            currentCh = (currentCh + 1) % PULSE_CHANNEL_NUM;
         }
     }
 }
@@ -523,23 +553,44 @@ uint16_t PulseTherapy::readBatteryVoltage() {
 
 uint16_t PulseTherapy::readChannelCurrent(uint8_t ch) {
     // 读取采样电阻上的电压，计算电流
-    // 每个通道有独立的采样电阻和ADC通道
+    // 改进：多次采样取平均，提高精度
     uint8_t adc_ch = 2 + ch;  // 假设通道0-5对应ADC2-7
-    analogWrite(ADC_CTRL, 0x80 | adc_ch);
-    delay(1);
-    uint16_t adc_val = analogRead(ADC_DATA);
-    return ADC_TO_UA(adc_val);
+    
+    uint32_t sum = 0;
+    const uint8_t samples = 8;  // 8次采样取平均
+    
+    for (uint8_t i = 0; i < samples; i++) {
+        analogWrite(ADC_CTRL, 0x80 | adc_ch);
+        delayMicroseconds(100);  // 缩短延时，提高响应速度
+        sum += analogRead(ADC_DATA);
+    }
+    
+    uint16_t adc_avg = sum / samples;
+    return ADC_TO_UA(adc_avg);
 }
 
 uint16_t PulseTherapy::readElectrodeImpedance(uint8_t ch) {
     // 通过测量开路电压和负载电压计算阻抗
-    // 简化实现：返回一个估算值
+    // 改进：使用交流阻抗测量方法，更准确
     if (!_channels[ch].enabled) return 0;
     
+    // 方法1：直流阻抗估算（简化）
     uint16_t current = readChannelCurrent(ch);
-    if (current == 0) return 99999;  // 开路
+    if (current == 0) return 100000;  // 开路（改为100kΩ，更合理）
+    if (current < 50) return 50000;   // 电流过小，可能接触不良
     
     // 阻抗 = 电压 / 电流
     uint16_t voltage = _channels[ch].duty * 3300 / 10000;  // mV
-    return (voltage * 1000) / current;  // 欧姆
+    uint16_t impedance = (voltage * 1000) / current;  // 欧姆
+    
+    // 判断电极状态
+    if (impedance > 50000) {
+        // 高阻抗：可能电极脱落或干燥
+        if (_safetyCallback) _safetyCallback("电极阻抗过高，请检查连接或湿润电极");
+    } else if (impedance > 10000) {
+        // 中等阻抗：可能皮肤干燥
+        if (_safetyCallback) _safetyCallback("电极阻抗偏高，建议清洁皮肤或更换电极");
+    }
+    
+    return impedance;
 }

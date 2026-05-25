@@ -1,0 +1,208 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title "CR8269F512E132TKM1815 六路脉冲发生器"
+Date "2026-05-13"
+Rev "V1.0"
+Comp "开源医疗项目"
+Comment1 "基于TLSR8269F512ET32"
+Comment2 "作者：束长江"
+Comment3 "开源协议：GPL v3 + CERN OHL v2"
+$EndDescr
+$Comp
+L CR8269F512E132TKM1815:CR8269F512E132TKM1815 U1
+U 1 1 609A1B2C
+P 5500 4000
+F 0 "U1" H 5100 5050 50  0000 C CNN
+F 1 "CR8269F512E132TKM1815" H 5800 2950 50  0000 C CNN
+F 2 "Package_DFN_QFN:QFN-32-1EP_5x5mm_P0.5mm_EP3.1x3.1mm" H 5500 2800 50  0001 C CNN
+F 3 "" H 5500 4000 50  0001 C CNN
+	1    5500 4000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:Crystal Y1
+U 1 1 609A1C3D
+P 7500 3500
+F 0 "Y1" H 7500 3768 50  0000 C CNN
+F 1 "24MHz" H 7500 3677 50  0000 C CNN
+F 2 "Crystal:Crystal_SMD_3225-4Pin_3.2x2.5mm" H 7500 3500 50  0001 C CNN
+F 3 "~" H 7500 3500 50  0001 C CNN
+	1    7500 3500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C3
+U 1 1 609A1D4E
+P 7000 3800
+F 0 "C3" H 7115 3846 50  0000 L CNN
+F 1 "18pF" H 7115 3755 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 7038 3650 50  0001 C CNN
+F 3 "~" H 7000 3800 50  0001 C CNN
+	1    7000 3800
+	1    0    0    1  
+$EndComp
+$Comp
+L Device:C C4
+U 1 1 609A1E5F
+P 8000 3800
+F 0 "C4" H 8115 3846 50  0000 L CNN
+F 1 "18pF" H 8115 3755 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 8038 3650 50  0001 C CNN
+F 3 "~" H 8000 3800 50  0001 C CNN
+	1    8000 3800
+	1    0    0    1  
+$EndComp
+$Comp
+L Device:C C1
+U 1 1 609A1F70
+P 4500 3000
+F 0 "C1" H 4615 3046 50  0000 L CNN
+F 1 "100nF" H 4615 2955 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 4538 2850 50  0001 C CNN
+F 3 "~" H 4500 3000 50  0001 C CNN
+	1    4500 3000
+	1    0    0    1  
+$EndComp
+$Comp
+L Device:C C2
+U 1 1 609A2081
+P 4800 3000
+F 0 "C2" H 4915 3046 50  0000 L CNN
+F 1 "10uF" H 4915 2955 50  0000 L CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric" H 4838 2850 50  0001 C CNN
+F 3 "~" H 4800 3000 50  0001 C CNN
+	1    4800 3000
+	1    0    0    1  
+$EndComp
+$Comp
+L Device:R R1
+U 1 1 609A2192
+P 6500 4500
+F 0 "R1" H 6570 4546 50  0000 L CNN
+F 1 "10k" H 6570 4455 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 6500 4500 50  0001 C CNN
+F 3 "~" H 6500 4500 50  0001 C CNN
+	1    6500 4500
+	1    0    0    1  
+$EndComp
+$Comp
+L Device:R R2
+U 1 1 609A22A3
+P 6500 4800
+F 0 "R2" H 6570 4846 50  0000 L CNN
+F 1 "10k" H 6570 4755 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 6500 4800 50  0001 C CNN
+F 3 "~" H 6500 4800 50  0001 C CNN
+	1    6500 4800
+	1    0    0    1  
+$EndComp
+$Comp
+L Switch:SW_Push SW1
+U 1 1 609A23B4
+P 7000 4800
+F 0 "SW1" H 7000 5085 50  0000 C CNN
+F 1 "RESET" H 7000 4994 50  0000 C CNN
+F 2 "Button_Switch_SMD:SW_SPST_TL3342" H 7000 5000 50  0001 C CNN
+F 3 "~" H 7000 5000 50  0001 C CNN
+	1    7000 4800
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x04_Male J1
+U 1 1 609A24C5
+P 8500 4500
+F 0 "J1" H 8578 4492 50  0000 L CNN
+F 1 "Prog" H 8578 4401 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 8500 4500 50  0001 C CNN
+F 3 "~" H 8500 4500 50  0001 C CNN
+	1    8500 4500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4500 2850 4500 2800
+Wire Wire Line
+	4500 2800 5500 2800
+Wire Wire Line
+	4800 2850 4800 2800
+Connection ~ 4800 2800
+Wire Wire Line
+	4800 2800 5500 2800
+Wire Wire Line
+	5500 2800 5500 3000
+Wire Wire Line
+	7000 3650 7000 3500
+Wire Wire Line
+	7000 3500 7300 3500
+Wire Wire Line
+	8000 3650 8000 3500
+Wire Wire Line
+	8000 3500 7700 3500
+Wire Wire Line
+	7000 3950 7000 4000
+Wire Wire Line
+	7000 4000 7500 4000
+Wire Wire Line
+	7500 4000 8000 4000
+Wire Wire Line
+	8000 3950 8000 4000
+Connection ~ 7500 4000
+Wire Wire Line
+	7500 4000 7500 4200
+Wire Wire Line
+	6000 4700 6500 4700
+Wire Wire Line
+	6500 4650 6500 4700
+Wire Wire Line
+	6500 4350 6500 4300
+Wire Wire Line
+	6500 4300 6000 4300
+Wire Wire Line
+	6000 5000 6500 5000
+Wire Wire Line
+	6500 4950 6500 5000
+Wire Wire Line
+	6500 4650 6500 4700
+Connection ~ 6500 4700
+Wire Wire Line
+	6500 4700 6500 5000
+Wire Wire Line
+	6750 4800 7000 4800
+Wire Wire Line
+	7000 4600 7000 4500
+Wire Wire Line
+	7000 4500 8300 4500
+Wire Wire Line
+	8300 4600 8300 4500
+Connection ~ 8300 4500
+Wire Wire Line
+	8300 4500 8300 4400
+Wire Wire Line
+	8500 4700 8500 4800
+Wire Wire Line
+	8500 4800 7500 4800
+Wire Wire Line
+	7500 4800 7500 4200
+Connection ~ 7500 4200
+Wire Wire Line
+	7500 4200 7500 4000
+Text Label 5500 2800 0    50   ~ 0
+VCC_3V3
+Text Label 7500 4200 0    50   ~ 0
+GND
+Text Label 6000 4700 0    50   ~ 0
+SWS
+Text Label 6000 5000 0    50   ~ 0
+RESET
+Text Label 8500 4700 0    50   ~ 0
+GND
+Text Label 8500 4500 0    50   ~ 0
+VCC_3V3
+Text Label 8500 4600 0    50   ~ 0
+SWS
+Text Label 8500 4400 0    50   ~ 0
+RESET
+$EndSCHEMATC

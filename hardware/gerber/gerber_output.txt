@@ -1,0 +1,46 @@
+# Gerber 文件输出清单
+# TLSR8269 六路脉冲治疗仪 V3
+# 生成日期：2026-05-14
+# 板尺寸：100mm × 80mm
+
+## Gerber 文件列表
+
+| 文件名 | 层 | 说明 |
+|--------|-----|------|
+| TLSR8269_PulseGenerator_v3-F_Cu.gbr | F.Cu | 顶层铜箔 |
+| TLSR8269_PulseGenerator_v3-B_Cu.gbr | B.Cu | 底层铜箔 |
+| TLSR8269_PulseGenerator_v3-F_Mask.gbr | F.Mask | 顶层阻焊 |
+| TLSR8269_PulseGenerator_v3-B_Mask.gbr | B.Mask | 底层阻焊 |
+| TLSR8269_PulseGenerator_v3-F_SilkS.gbr | F.SilkS | 顶层丝印 |
+| TLSR8269_PulseGenerator_v3-B_SilkS.gbr | B.SilkS | 底层丝印 |
+| TLSR8269_PulseGenerator_v3-Edge_Cuts.gbr | Edge.Cuts | 板框 |
+| TLSR8269_PulseGenerator_v3-F_Paste.gbr | F.Paste | 顶层钢网 |
+| TLSR8269_PulseGenerator_v3-B_Paste.gbr | B.Paste | 底层钢网 |
+| TLSR8269_PulseGenerator_v3-F_Fab.gbr | F.Fab | 顶层制造图 |
+| TLSR8269_PulseGenerator_v3-B_Fab.gbr | B.Fab | 底层制造图 |
+
+## 钻孔文件
+
+| 文件名 | 说明 |
+|--------|------|
+| TLSR8269_PulseGenerator_v3.drl | 钻孔文件 (Excellon格式) |
+| TLSR8269_PulseGenerator_v3-drl_map.pdf | 钻孔图 |
+
+## 生成参数
+
+- 格式：RS-274X
+- 坐标精度：4.6 (Leading)
+- 单位：毫米 (mm)
+- 零省略：Leading
+- 坐标模式：绝对坐标
+
+## 制造要求
+
+- 板厚：1.6mm
+- 铜厚：1oz (35μm)
+- 最小线宽：0.2mm
+- 最小间距：0.2mm
+- 最小孔径：0.3mm
+- 阻焊颜色：绿色
+- 丝印颜色：白色
+- 表面处理：HASL无铅喷锡
