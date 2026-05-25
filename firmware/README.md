@@ -143,19 +143,22 @@ make debug
 
 - [x] 寄存器定义头文件 (`tlsr8269_reg.h`)
 - [x] 系统自检模块 (`self_check.h/c`)
+- [x] PWM驱动模块 (`pwm_driver.h/c`)
+- [x] ADC驱动模块 (`adc_driver.h/c`)
+- [x] I2C驱动模块 (`i2c_driver.h/c`)
+- [x] UART驱动模块 (`uart_driver.h/c`)
+- [x] Timer驱动模块 (`timer_driver.h/c`)
+- [x] LCD显示驱动 (`lcd_driver.h/c`)
+- [x] 按键驱动 (`button_driver.h/c`)
+- [x] UI管理 (`ui_manager.h/c`)
+- [x] Flash驱动 (`flash_driver.h/c`)
+- [x] 主程序框架 (`main_master.c`, `main_master_v3.c`, `main_slave.c`)
+- [x] 编译脚本 (`Makefile`)
 
 ### 待完成 ⏳
 
-- [ ] PWM驱动模块
-- [ ] ADC驱动模块
-- [ ] UART驱动模块
-- [ ] I2C驱动模块
 - [ ] BLE服务模块
-- [ ] 主程序框架
-- [ ] 编译脚本 (Makefile)
-
----
-
+- [ ] 手机APP
 ## 安全说明
 
 ⚠️ **医疗级安全要求**：
