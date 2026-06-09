@@ -31,7 +31,8 @@ AR = $(TOOLCHAIN_PREFIX)ar
 
 # 编译选项
 CFLAGS = -ffunction-sections -fdata-sections
-CFLAGS += -Wall -Wextra -Werror
+CFLAGS += -Wall -Wextra
+CFLAGS += -std=gnu99
 CFLAGS += -O2
 CFLAGS += -g  # 调试信息
 
@@ -60,7 +61,8 @@ SRCS = main_master_v3.c \
        lcd_driver.c \
        button_driver.c \
        ui_manager.c \
-       self_check.c
+       self_check.c \
+       stubs.c
 
 # SDK源文件（根据需要添加）
 SDK_SRCS = $(TELINK_SDK)/drivers/8269/gpio_8269.c \

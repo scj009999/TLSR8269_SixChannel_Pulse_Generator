@@ -74,8 +74,8 @@ static const uint8_t I2C_SCL = SCL;
 // ------------------------------
 // UART (fixed pins)
 // ------------------------------
-static const uint8_t RX = 16;    // PC0
-static const uint8_t TX = 17;    // PC1
+static const uint8_t RX = 10;    // PB2 - UART_RX
+static const uint8_t TX = 9;     // PB1 - UART_TX
 
 // ------------------------------
 // LED & Analog Input

@@ -74,7 +74,7 @@ typedef enum {
 typedef enum {
     PWM_FAULT_NONE = 0,         // 无故障
     PWM_FAULT_OVERCURRENT,      // 过流
-    PWM_FAULT_OPEN circuit,     // 开路（电极脱落）
+    PWM_FAULT_OPEN_CIRCUIT,     // 开路（电极脱落）
     PWM_FAULT_SHORT,            // 短路
     PWM_FAULT_OVERVOLTAGE,      // 过压
     PWM_FAULT_OVERTEMP,         // 过热

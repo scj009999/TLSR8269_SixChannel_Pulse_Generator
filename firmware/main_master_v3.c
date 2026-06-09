@@ -10,13 +10,18 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include <string.h>
+#include <stdio.h>
 #include "tlsr8269_reg.h"
 #include "i2c_driver.h"
 #include "pwm_driver.h"
 #include "adc_driver.h"
 #include "lcd_driver.h"
 #include "button_driver.h"
+#include "button_defs.h"
+#include "irq_wrapper.h"
+#include "stubs.h"
 #include "ui_manager.h"
+#include "timer_driver.h"
 
 /* ============================================================
  * 版本信息
